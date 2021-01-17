@@ -4,66 +4,122 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Security;
 using System.Windows.Forms;
-
 using System.IO;
 
 
 namespace Rename
 {
     public partial class Form1 : Form
+
     {
+
+        List<string> Arquivos = new List<string>();
+        public FileInfo NovoArquivo;
+        public string DirEntrada;
+        // public string DirSaida = @"C:\User\Rafael\Desktop\NewRafael";
+        public string DirSaida;
+        public string DirSaídaCopy;
+        
+     
+
         public Form1()
         {
             InitializeComponent();
+            RbAutomatico.Checked = true;
+            GbManual.Enabled = false;
+        }       
+
+        private void RbManual_CheckedChanged(object sender, EventArgs e)
+        {
+            if (GbManual.Enabled == false)
+            {
+                GbManual.Enabled = true;
+            }
+            else
+            {
+                GbManual.Enabled = false;
+            }
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            this.ofd1 = new System.Windows.Forms.OpenFileDialog();
-            this.ofd1.FileName = "OpenFileDialog1";
+            GetArquivos();
+        }
+        private void BtnRenomear_Click(object sender, EventArgs e)
+        {
+            Processar();
+        }
+        private void BtnSaida_Click(object sender, EventArgs e)
+        {
+            fbd = new FolderBrowserDialog();
 
+            fbd.Description = "Salvar em ";     
+           
+
+            if (fbd.ShowDialog()== DialogResult.OK)
+            {
+                DirSaida = fbd.SelectedPath;
+                txtOutput.Text = DirSaida;
+            }
+               
+        }
+
+        void Processar()
+        {
+            try
+            {
+                foreach (var arquivo in Arquivos)
+                {
+                  
+                    for (int i=0; i<= arquivo.Length;i++)
+                    {
+                        //melhorar esse progress bar
+
+                        progressBar1.Value = i;
+                    }
+                    // NovoArquivo = arquivo.Replace(""," ");
+
+                   Directory.CreateDirectory(@"C:\NovaPasta");
+               
+                    NovoArquivo = new FileInfo(arquivo);
+                    NovoArquivo.MoveTo(Path.Combine(@"C:\NovaPasta", NovoArquivo.Name.Replace("","")));         
+
+                }
+                Directory.CreateDirectory(DirSaida);
+               
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+        void GetArquivos()
+        {
+            this.ofd1 = new System.Windows.Forms.OpenFileDialog();
             this.ofd1.Multiselect = true;
-            this.ofd1.FileName = "Selecionar roms";
+            this.ofd1.FileName = "";
             this.ofd1.InitialDirectory = @"C:\";
-            this.ofd1.Filter = "Roms(*.iso;*.bin;*.rar;*.zip;*.cue;*.gba;*.gbc;*.gb;*.sms;*.gen;*.nes;*.z64;*.v64;*.rom;*.nds;*.smc;)| *.iso;*.bin;*.rar;*.zip;*.cue;*.gba;*.gbc;*.gb;*.sms;*.gen;*.nes;*.z64;*.v64;*.rom;*.nds;*.smc;|";
+            this.ofd1.Filter = "Roms(*.iso;*.bin;*.rar;*.zip;*.cue;*.gba;*.gbc;*.gb;*.sms;*.gen;*.nes;*.z64;*.v64;*.rom;*.nds;*.smc;)| *.iso;*.bin;*.rar;*.zip;*.cue;*.gba;*.gbc;*.gb;*.sms;*.gen;*.nes;*.z64;*.v64;*.rom;*.nds;*.smc" + "|All Files|*.*";
 
             ofd1.CheckFileExists = true;
             ofd1.CheckPathExists = true;
-            ofd1.FilterIndex = 2;
+            ofd1.FilterIndex = 1;
             ofd1.RestoreDirectory = true;
             ofd1.ReadOnlyChecked = true;
             ofd1.ShowReadOnly = true;
 
             DialogResult dr = this.ofd1.ShowDialog();
-            
+
             if (dr == System.Windows.Forms.DialogResult.OK)
             {
-                // Le os arquivos selecionados 
-                foreach (String arquivo in ofd1.FileNames)
+                foreach (string arquivo in ofd1.FileNames)
                 {
-                  
-                   
-                  
-                    try
-                    {
-                        listBox1.Items.Add(arquivo);
-                    }
-                    catch (SecurityException ex)
-                    {
-                        // O usuário  não possui permissão para ler arquivos
-                        MessageBox.Show("Erro de segurança");
-                    }
-                    catch (Exception ex)
-                    {
-                        // Não pode carregar a imagem (problemas de permissão)
-                        MessageBox.Show("Não é possível exibir a imagem");
-                    }
+                    listBox1.Items.Add(arquivo);
+                    Arquivos.Add(arquivo);
                 }
             }
-        }//fim e evento botão
-
-
-          }
-
-
+        }
+    }
 }
+
+//files.MoveTo(Path.Combine(DirSaida, files.Name.Replace(",", "").Replace("_", " ").Replace("-", " ").Replace("(", "").Replace("(U)", "").Replace("(E)", "").Replace("(EU)", "").Replace("US", "").Replace("EUA", "").Replace("USA", "").Replace("BR", "").Replace("T-BR", "").Replace(")", "").Replace("(J)", "").Replace("[!]", "").Replace("(PD)", "").Replace("[A]", "").Replace("[B]", "").Replace("[C]", "").Replace("[D]", "").Replace("[E]", "").Replace("[F]", "").Replace("[G]", "").Replace("[H]", "").Replace("[I]", "").Replace("[J]", "").Replace("[L]", "").Replace("[K]", "").Replace("[L]", "").Replace("[M]", "").Replace("[N]", "").Replace("[O]", "").Replace("[P]", "").Replace("[Q]", "").Replace("[R]", "").Replace("[S]", "").Replace("[T]", "").Replace("[U]", "").Replace("[W]", "").Replace("[X]", "").Replace("[Y]", "").Replace("[Z]", "").Replace("[A]", "").Replace("(C)", "").Replace("(World)", "").Replace("(Beta)", "").Replace("(En)", "").Replace("(Fr)", "").Replace("(De)", "".Replace("(Es)", "").Replace("(It)", "").Replace("(Alt)", "").Replace("(Europe)", "").Replace("(Rev 1)", "").Replace("(Rev 2)", "").Replace("(Rev 3)", "").Replace("(Rev 4)", "").Replace("(Rev 5)", "").Replace("(Asia)", "").Replace("(A)", "").Replace("(Brazil)", "").Replace("(Pt-Br)", "").Replace("(K)", "").Replace("(Korea)", "").Replace("(Ch)", "").Replace("(Chine)", "").Replace("(China)", "").Replace("(J)", "").Replace("(Japan)", "").Replace("(Usa,Europe)", "").Replace("(UE)", "").Replace("(Unl)", "").Replace("(UJE)", "").Replace("(REV01)", "").Replace("(REV02)", "").Replace("(REV03)", "").Replace("(REV04)", "").Replace("(REV05)", "").Replace("(REV)", "").Replace("(REV00)", "").Replace("(REV 00)", "").Replace("(UE)", "").Replace("PD)", "").Replace("(M1)", "").Replace("(M2)", "").Replace("(M3)", "").Replace("(M4)", "").Replace("(M5)", "").Replace("  ", " ").Replace("   ", " ").Replace("    ", " ").Replace("     ", " "
+//    )))); ; ;
