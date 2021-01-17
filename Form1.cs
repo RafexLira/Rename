@@ -15,10 +15,11 @@ namespace Rename
 
         List<string> Arquivos = new List<string>();
         public FileInfo NovoArquivo;
+        public FileInfo NovoDiretorio;
         public string DirEntrada;
         // public string DirSaida = @"C:\User\Rafael\Desktop\NewRafael";
         public string DirSaida;
-        public string DirSaídaCopy;
+        public string DirSaidaCopy;
 
 
 
@@ -65,14 +66,47 @@ namespace Rename
         }
 
         void Processar()
-        {
+        {           
             try
-            {
+            {              
                 foreach (var arquivo in Arquivos)
-                {
-                  
+                {                    
                     NovoArquivo = new FileInfo(arquivo);
-                    NovoArquivo.CopyTo(Path.Combine(DirSaida, NovoArquivo.Name.Replace("_.", "").Replace("_"," ")));
+                    NovoArquivo.CopyTo(Path.Combine(DirSaida, NovoArquivo.Name.Replace("_.", ".").Replace("_", " ")
+                        .Replace("-.", ".").Replace("-", " ").Replace(",", " ").Replace("_", " ").Replace("-", " ")
+                        .Replace("(", "").Replace("(U)", "").Replace("(E)", "").Replace("(EU)", "").Replace("(US)", "")
+                        .Replace("(EUA)", "").Replace("(USA)", "").Replace("(BR)", "").Replace("T-BR", "")
+                        .Replace(")", "").Replace("(J)", "").Replace("[!]", "").Replace("(PD)", "").Replace("[A]", "")
+                        .Replace("[B]", "").Replace("[C]", "").Replace("[D]", "").Replace("[E]", "").Replace("[F]", "")
+                        .Replace("[G]", "").Replace("[H]", "").Replace("[I]", "").Replace("[J]", "").Replace("[L]", "")
+                        .Replace("[K]", "").Replace("[L]", "").Replace("[M]", "").Replace("[N]", "").Replace("[O]", "")
+                        .Replace("[P]", "").Replace("[Q]", "").Replace("[R]", "").Replace("[S]", "").Replace("[T]", "")
+                        .Replace("[U]", "").Replace("[W]", "").Replace("[X]", "").Replace("[Y]", "").Replace("[Z]", "")
+                        .Replace("[A]", "").Replace("(C)", "").Replace("(World)", "").Replace("(Beta)", "")
+                        .Replace("(En)", "").Replace("(Fr)", "").Replace("(De)", "".Replace("(Es)", "")
+                        .Replace("(It)", "").Replace("(Alt)", "").Replace("(Europe)","").Replace("(Rev 1)", "")
+                        .Replace("(Rev 2)", "").Replace("(Rev 3)", "").Replace("(Rev 4)", "").Replace("(Rev 5)", "")
+                        .Replace("(Asia)", "").Replace("(A)", "").Replace("(Brazil)", "").Replace("(Pt-Br)", "")
+                        .Replace("(K)", "").Replace("(Korea)", "").Replace("(Ch)", "").Replace("(Chine)", "")
+                        .Replace("(China)", "").Replace("(J)", "").Replace("(Japan)", "").Replace("(Usa,Europe)", "")
+                        .Replace("(UE)", "").Replace("(Unl)", "").Replace("(UJE)", "").Replace("(REV01)", "")
+                        .Replace("(REV02)", "").Replace("(REV03)", "").Replace("(REV04)", "").Replace("(REV05)", "")
+                        .Replace("(REV)","").Replace("(REV00)", "").Replace("(REV 00)", "").Replace("(UE)", "")
+                        .Replace("PD)", "").Replace("(M1)", "").Replace("(M2)", "").Replace("(M3)", "")
+                        .Replace("(M4)", "")
+                        .Replace("(M5)", "").Replace("  ", " ").Replace("   ", " ").Replace("    ", " ")
+                        .Replace("     ", " "))
+
+
+
+
+
+
+
+
+
+
+                        ));
                     //verificar a barra de progresso
                     //verificar se o arquivo já existe
 
@@ -81,6 +115,7 @@ namespace Rename
             }
             catch (Exception ex)
             {
+                MessageBox.Show(ex.Message + " \n Erro ao tentar processar aquivos");
             }
         }
         void GetArquivos()
