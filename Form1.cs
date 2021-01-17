@@ -19,15 +19,15 @@ namespace Rename
         // public string DirSaida = @"C:\User\Rafael\Desktop\NewRafael";
         public string DirSaida;
         public string DirSaídaCopy;
-        
-     
+
+
 
         public Form1()
         {
             InitializeComponent();
             RbAutomatico.Checked = true;
             GbManual.Enabled = false;
-        }       
+        }
 
         private void RbManual_CheckedChanged(object sender, EventArgs e)
         {
@@ -53,15 +53,15 @@ namespace Rename
         {
             fbd = new FolderBrowserDialog();
 
-            fbd.Description = "Salvar em ";     
-           
+            fbd.Description = "Salvar em ";
 
-            if (fbd.ShowDialog()== DialogResult.OK)
+
+            if (fbd.ShowDialog() == DialogResult.OK)
             {
                 DirSaida = fbd.SelectedPath;
                 txtOutput.Text = DirSaida;
             }
-               
+
         }
 
         void Processar()
@@ -71,22 +71,13 @@ namespace Rename
                 foreach (var arquivo in Arquivos)
                 {
                   
-                    for (int i=0; i<= arquivo.Length;i++)
-                    {
-                        //melhorar esse progress bar
-
-                        progressBar1.Value = i;
-                    }
-                    // NovoArquivo = arquivo.Replace(""," ");
-
-                   Directory.CreateDirectory(@"C:\NovaPasta");
-               
                     NovoArquivo = new FileInfo(arquivo);
-                    NovoArquivo.MoveTo(Path.Combine(@"C:\NovaPasta", NovoArquivo.Name.Replace("","")));         
+                    NovoArquivo.CopyTo(Path.Combine(DirSaida, NovoArquivo.Name.Replace("_.", "").Replace("_"," ")));
+                    //verificar a barra de progresso
+                    //verificar se o arquivo já existe
 
                 }
-                Directory.CreateDirectory(DirSaida);
-               
+                MessageBox.Show("Arquivos Processados com sucesso!");
             }
             catch (Exception ex)
             {
@@ -94,12 +85,11 @@ namespace Rename
         }
         void GetArquivos()
         {
-            this.ofd1 = new System.Windows.Forms.OpenFileDialog();
-            this.ofd1.Multiselect = true;
-            this.ofd1.FileName = "";
-            this.ofd1.InitialDirectory = @"C:\";
-            this.ofd1.Filter = "Roms(*.iso;*.bin;*.rar;*.zip;*.cue;*.gba;*.gbc;*.gb;*.sms;*.gen;*.nes;*.z64;*.v64;*.rom;*.nds;*.smc;)| *.iso;*.bin;*.rar;*.zip;*.cue;*.gba;*.gbc;*.gb;*.sms;*.gen;*.nes;*.z64;*.v64;*.rom;*.nds;*.smc" + "|All Files|*.*";
-
+            ofd1 = new OpenFileDialog();
+            ofd1.Multiselect = true;
+            ofd1.FileName = "";
+            ofd1.InitialDirectory = @"C:\";
+            ofd1.Filter = "Roms(*.iso;*.bin;*.rar;*.zip;*.cue;*.gba;*.gbc;*.gb;*.sms;*.gen;*.nes;*.z64;*.v64;*.rom;*.nds;*.smc;)| *.iso;*.bin;*.rar;*.zip;*.cue;*.gba;*.gbc;*.gb;*.sms;*.gen;*.nes;*.z64;*.v64;*.rom;*.nds;*.smc" + "|All Files|*.*";
             ofd1.CheckFileExists = true;
             ofd1.CheckPathExists = true;
             ofd1.FilterIndex = 1;
@@ -107,9 +97,7 @@ namespace Rename
             ofd1.ReadOnlyChecked = true;
             ofd1.ShowReadOnly = true;
 
-            DialogResult dr = this.ofd1.ShowDialog();
-
-            if (dr == System.Windows.Forms.DialogResult.OK)
+            if (ofd1.ShowDialog()== DialogResult.OK)
             {
                 foreach (string arquivo in ofd1.FileNames)
                 {
