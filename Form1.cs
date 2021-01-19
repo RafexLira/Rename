@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Security;
 using System.Windows.Forms;
 using System.IO;
+using System.Linq;
 
 
 namespace Rename
@@ -71,9 +72,7 @@ namespace Rename
             {              
                 foreach (var arquivo in Arquivos)
                 {
-                   
-
-                    NovoArquivo = new FileInfo(arquivo);                   
+                    NovoArquivo = new FileInfo(arquivo);                    
                     NovoArquivo.CopyTo(Path.Combine(DirSaida, NovoArquivo.Name.Replace("_.", ".").Replace("_", " ")
                         .Replace("-.", ".").Replace("-", " ").Replace(",", " ").Replace("_", " ").Replace("-", " ")
                         .Replace("(", "").Replace(").", "").Replace(")", "").Replace("(J)", "").Replace("[!]", "").Replace("(PD)", "")
@@ -132,10 +131,7 @@ namespace Rename
                         .Replace("     ", " ")
 
                         ));
-                    if (File.Exists(arquivo))
-                    {
-                        File.Delete(arquivo);
-                    }
+                                     
                     //verificar a barra de progresso
                     //verificar se o arquivo já existe
 
