@@ -43,23 +43,24 @@
             this.label4 = new System.Windows.Forms.Label();
             this.TxtAcrescentar = new System.Windows.Forms.TextBox();
             this.GbManual = new System.Windows.Forms.GroupBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.TxtRemover3 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.TxtAcrescentar3 = new System.Windows.Forms.TextBox();
+            this.TxtRemover2 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TxtAcrescentar2 = new System.Windows.Forms.TextBox();
+            this.TxtRemover1 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TxtAcrescentar1 = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.fbd = new System.Windows.Forms.FolderBrowserDialog();
+            this.BtnLimpar = new System.Windows.Forms.Button();
             this.GbManual.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -96,6 +97,7 @@
             // 
             // txtOutput
             // 
+            this.txtOutput.Enabled = false;
             this.txtOutput.Location = new System.Drawing.Point(127, 49);
             this.txtOutput.Name = "txtOutput";
             this.txtOutput.Size = new System.Drawing.Size(189, 20);
@@ -127,7 +129,7 @@
             // TxtRemover
             // 
             this.TxtRemover.Location = new System.Drawing.Point(84, 33);
-            this.TxtRemover.MaxLength = 5;
+            this.TxtRemover.MaxLength = 10;
             this.TxtRemover.Name = "TxtRemover";
             this.TxtRemover.Size = new System.Drawing.Size(63, 20);
             this.TxtRemover.TabIndex = 8;
@@ -184,25 +186,25 @@
             // TxtAcrescentar
             // 
             this.TxtAcrescentar.Location = new System.Drawing.Point(248, 33);
-            this.TxtAcrescentar.MaxLength = 5;
+            this.TxtAcrescentar.MaxLength = 10;
             this.TxtAcrescentar.Name = "TxtAcrescentar";
             this.TxtAcrescentar.Size = new System.Drawing.Size(68, 20);
             this.TxtAcrescentar.TabIndex = 14;
             // 
             // GbManual
             // 
-            this.GbManual.Controls.Add(this.textBox5);
+            this.GbManual.Controls.Add(this.TxtRemover3);
             this.GbManual.Controls.Add(this.label9);
             this.GbManual.Controls.Add(this.label10);
-            this.GbManual.Controls.Add(this.textBox6);
-            this.GbManual.Controls.Add(this.textBox3);
+            this.GbManual.Controls.Add(this.TxtAcrescentar3);
+            this.GbManual.Controls.Add(this.TxtRemover2);
             this.GbManual.Controls.Add(this.label7);
             this.GbManual.Controls.Add(this.label8);
-            this.GbManual.Controls.Add(this.textBox4);
-            this.GbManual.Controls.Add(this.textBox1);
+            this.GbManual.Controls.Add(this.TxtAcrescentar2);
+            this.GbManual.Controls.Add(this.TxtRemover1);
             this.GbManual.Controls.Add(this.label5);
             this.GbManual.Controls.Add(this.label6);
-            this.GbManual.Controls.Add(this.textBox2);
+            this.GbManual.Controls.Add(this.TxtAcrescentar1);
             this.GbManual.Controls.Add(this.TxtRemover);
             this.GbManual.Controls.Add(this.label4);
             this.GbManual.Controls.Add(this.label2);
@@ -214,13 +216,13 @@
             this.GbManual.TabStop = false;
             this.GbManual.Text = "Manual";
             // 
-            // textBox5
+            // TxtRemover3
             // 
-            this.textBox5.Location = new System.Drawing.Point(84, 132);
-            this.textBox5.MaxLength = 5;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(63, 20);
-            this.textBox5.TabIndex = 24;
+            this.TxtRemover3.Location = new System.Drawing.Point(84, 132);
+            this.TxtRemover3.MaxLength = 10;
+            this.TxtRemover3.Name = "TxtRemover3";
+            this.TxtRemover3.Size = new System.Drawing.Size(63, 20);
+            this.TxtRemover3.TabIndex = 24;
             // 
             // label9
             // 
@@ -240,21 +242,21 @@
             this.label10.TabIndex = 25;
             this.label10.Text = "Remover :";
             // 
-            // textBox6
+            // TxtAcrescentar3
             // 
-            this.textBox6.Location = new System.Drawing.Point(248, 132);
-            this.textBox6.MaxLength = 5;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(68, 20);
-            this.textBox6.TabIndex = 26;
+            this.TxtAcrescentar3.Location = new System.Drawing.Point(248, 132);
+            this.TxtAcrescentar3.MaxLength = 10;
+            this.TxtAcrescentar3.Name = "TxtAcrescentar3";
+            this.TxtAcrescentar3.Size = new System.Drawing.Size(68, 20);
+            this.TxtAcrescentar3.TabIndex = 26;
             // 
-            // textBox3
+            // TxtRemover2
             // 
-            this.textBox3.Location = new System.Drawing.Point(84, 99);
-            this.textBox3.MaxLength = 5;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(63, 20);
-            this.textBox3.TabIndex = 20;
+            this.TxtRemover2.Location = new System.Drawing.Point(84, 99);
+            this.TxtRemover2.MaxLength = 10;
+            this.TxtRemover2.Name = "TxtRemover2";
+            this.TxtRemover2.Size = new System.Drawing.Size(63, 20);
+            this.TxtRemover2.TabIndex = 20;
             // 
             // label7
             // 
@@ -274,21 +276,21 @@
             this.label8.TabIndex = 21;
             this.label8.Text = "Remover :";
             // 
-            // textBox4
+            // TxtAcrescentar2
             // 
-            this.textBox4.Location = new System.Drawing.Point(248, 99);
-            this.textBox4.MaxLength = 5;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(68, 20);
-            this.textBox4.TabIndex = 22;
+            this.TxtAcrescentar2.Location = new System.Drawing.Point(248, 99);
+            this.TxtAcrescentar2.MaxLength = 10;
+            this.TxtAcrescentar2.Name = "TxtAcrescentar2";
+            this.TxtAcrescentar2.Size = new System.Drawing.Size(68, 20);
+            this.TxtAcrescentar2.TabIndex = 22;
             // 
-            // textBox1
+            // TxtRemover1
             // 
-            this.textBox1.Location = new System.Drawing.Point(84, 67);
-            this.textBox1.MaxLength = 5;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(63, 20);
-            this.textBox1.TabIndex = 16;
+            this.TxtRemover1.Location = new System.Drawing.Point(84, 67);
+            this.TxtRemover1.MaxLength = 10;
+            this.TxtRemover1.Name = "TxtRemover1";
+            this.TxtRemover1.Size = new System.Drawing.Size(63, 20);
+            this.TxtRemover1.TabIndex = 16;
             // 
             // label5
             // 
@@ -308,13 +310,13 @@
             this.label6.TabIndex = 17;
             this.label6.Text = "Remover :";
             // 
-            // textBox2
+            // TxtAcrescentar1
             // 
-            this.textBox2.Location = new System.Drawing.Point(248, 67);
-            this.textBox2.MaxLength = 5;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(68, 20);
-            this.textBox2.TabIndex = 18;
+            this.TxtAcrescentar1.Location = new System.Drawing.Point(248, 67);
+            this.TxtAcrescentar1.MaxLength = 10;
+            this.TxtAcrescentar1.Name = "TxtAcrescentar1";
+            this.TxtAcrescentar1.Size = new System.Drawing.Size(68, 20);
+            this.TxtAcrescentar1.TabIndex = 18;
             // 
             // groupBox2
             // 
@@ -346,11 +348,22 @@
             this.groupBox3.TabIndex = 19;
             this.groupBox3.TabStop = false;
             // 
+            // BtnLimpar
+            // 
+            this.BtnLimpar.Location = new System.Drawing.Point(661, 412);
+            this.BtnLimpar.Name = "BtnLimpar";
+            this.BtnLimpar.Size = new System.Drawing.Size(127, 51);
+            this.BtnLimpar.TabIndex = 20;
+            this.BtnLimpar.Text = "Limpar Lista";
+            this.BtnLimpar.UseVisualStyleBackColor = true;
+            this.BtnLimpar.Click += new System.EventHandler(this.BtnLimpar_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 527);
+            this.Controls.Add(this.BtnLimpar);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.groupBox2);
@@ -361,6 +374,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.GbManual.ResumeLayout(false);
             this.GbManual.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -389,23 +403,24 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox TxtAcrescentar;
         private System.Windows.Forms.GroupBox GbManual;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox TxtRemover3;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox TxtAcrescentar3;
+        private System.Windows.Forms.TextBox TxtRemover2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TxtAcrescentar2;
+        private System.Windows.Forms.TextBox TxtRemover1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox TxtAcrescentar1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.FolderBrowserDialog fbd;
+        private System.Windows.Forms.Button BtnLimpar;
     }
 }
 
