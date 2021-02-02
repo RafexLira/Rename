@@ -63,6 +63,7 @@
             this.BtnLimpar = new System.Windows.Forms.Button();
             this.TxtQtd_Origem = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.GbManual.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -382,11 +383,21 @@
             this.label11.TabIndex = 26;
             this.label11.Text = "Qtd Roms";
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(765, 9);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(23, 13);
+            this.label12.TabIndex = 27;
+            this.label12.Text = "V.1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 527);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.TxtQtd_Origem);
             this.Controls.Add(this.BtnLimpar);
@@ -450,6 +461,7 @@
         private System.Windows.Forms.Button BtnLimpar;
         private System.Windows.Forms.TextBox TxtQtd_Origem;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
     }
 }
 
