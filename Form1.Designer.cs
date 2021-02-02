@@ -61,6 +61,8 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.fbd = new System.Windows.Forms.FolderBrowserDialog();
             this.BtnLimpar = new System.Windows.Forms.Button();
+            this.TxtQtd_Origem = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.GbManual.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -69,11 +71,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(349, 33);
+            this.label1.Font = new System.Drawing.Font("Arial", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(225, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 13);
+            this.label1.Size = new System.Drawing.Size(370, 44);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Renomear roms ";
+            this.label1.Text = "RENOMEAR ROMS ";
             // 
             // btnBuscar
             // 
@@ -87,6 +90,7 @@
             // 
             // BtnSaida
             // 
+            this.BtnSaida.Enabled = false;
             this.BtnSaida.Location = new System.Drawing.Point(25, 47);
             this.BtnSaida.Name = "BtnSaida";
             this.BtnSaida.Size = new System.Drawing.Size(75, 23);
@@ -129,9 +133,9 @@
             // TxtRemover
             // 
             this.TxtRemover.Location = new System.Drawing.Point(84, 33);
-            this.TxtRemover.MaxLength = 10;
+            this.TxtRemover.MaxLength = 20;
             this.TxtRemover.Name = "TxtRemover";
-            this.TxtRemover.Size = new System.Drawing.Size(63, 20);
+            this.TxtRemover.Size = new System.Drawing.Size(81, 20);
             this.TxtRemover.TabIndex = 8;
             // 
             // label2
@@ -186,7 +190,7 @@
             // TxtAcrescentar
             // 
             this.TxtAcrescentar.Location = new System.Drawing.Point(248, 33);
-            this.TxtAcrescentar.MaxLength = 10;
+            this.TxtAcrescentar.MaxLength = 20;
             this.TxtAcrescentar.Name = "TxtAcrescentar";
             this.TxtAcrescentar.Size = new System.Drawing.Size(68, 20);
             this.TxtAcrescentar.TabIndex = 14;
@@ -219,9 +223,9 @@
             // TxtRemover3
             // 
             this.TxtRemover3.Location = new System.Drawing.Point(84, 132);
-            this.TxtRemover3.MaxLength = 10;
+            this.TxtRemover3.MaxLength = 20;
             this.TxtRemover3.Name = "TxtRemover3";
-            this.TxtRemover3.Size = new System.Drawing.Size(63, 20);
+            this.TxtRemover3.Size = new System.Drawing.Size(81, 20);
             this.TxtRemover3.TabIndex = 24;
             // 
             // label9
@@ -245,7 +249,7 @@
             // TxtAcrescentar3
             // 
             this.TxtAcrescentar3.Location = new System.Drawing.Point(248, 132);
-            this.TxtAcrescentar3.MaxLength = 10;
+            this.TxtAcrescentar3.MaxLength = 20;
             this.TxtAcrescentar3.Name = "TxtAcrescentar3";
             this.TxtAcrescentar3.Size = new System.Drawing.Size(68, 20);
             this.TxtAcrescentar3.TabIndex = 26;
@@ -253,9 +257,9 @@
             // TxtRemover2
             // 
             this.TxtRemover2.Location = new System.Drawing.Point(84, 99);
-            this.TxtRemover2.MaxLength = 10;
+            this.TxtRemover2.MaxLength = 20;
             this.TxtRemover2.Name = "TxtRemover2";
-            this.TxtRemover2.Size = new System.Drawing.Size(63, 20);
+            this.TxtRemover2.Size = new System.Drawing.Size(81, 20);
             this.TxtRemover2.TabIndex = 20;
             // 
             // label7
@@ -279,7 +283,7 @@
             // TxtAcrescentar2
             // 
             this.TxtAcrescentar2.Location = new System.Drawing.Point(248, 99);
-            this.TxtAcrescentar2.MaxLength = 10;
+            this.TxtAcrescentar2.MaxLength = 20;
             this.TxtAcrescentar2.Name = "TxtAcrescentar2";
             this.TxtAcrescentar2.Size = new System.Drawing.Size(68, 20);
             this.TxtAcrescentar2.TabIndex = 22;
@@ -287,9 +291,9 @@
             // TxtRemover1
             // 
             this.TxtRemover1.Location = new System.Drawing.Point(84, 67);
-            this.TxtRemover1.MaxLength = 10;
+            this.TxtRemover1.MaxLength = 20;
             this.TxtRemover1.Name = "TxtRemover1";
-            this.TxtRemover1.Size = new System.Drawing.Size(63, 20);
+            this.TxtRemover1.Size = new System.Drawing.Size(81, 20);
             this.TxtRemover1.TabIndex = 16;
             // 
             // label5
@@ -313,7 +317,7 @@
             // TxtAcrescentar1
             // 
             this.TxtAcrescentar1.Location = new System.Drawing.Point(248, 67);
-            this.TxtAcrescentar1.MaxLength = 10;
+            this.TxtAcrescentar1.MaxLength = 20;
             this.TxtAcrescentar1.Name = "TxtAcrescentar1";
             this.TxtAcrescentar1.Size = new System.Drawing.Size(68, 20);
             this.TxtAcrescentar1.TabIndex = 18;
@@ -332,10 +336,12 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.progressBar1.Location = new System.Drawing.Point(12, 492);
+            this.progressBar1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.progressBar1.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.progressBar1.Location = new System.Drawing.Point(12, 505);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(776, 23);
+            this.progressBar1.Size = new System.Drawing.Size(776, 10);
+            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.progressBar1.TabIndex = 18;
             // 
             // groupBox3
@@ -358,11 +364,31 @@
             this.BtnLimpar.UseVisualStyleBackColor = true;
             this.BtnLimpar.Click += new System.EventHandler(this.BtnLimpar_Click);
             // 
+            // TxtQtd_Origem
+            // 
+            this.TxtQtd_Origem.Enabled = false;
+            this.TxtQtd_Origem.Location = new System.Drawing.Point(96, 469);
+            this.TxtQtd_Origem.Name = "TxtQtd_Origem";
+            this.TxtQtd_Origem.ReadOnly = true;
+            this.TxtQtd_Origem.Size = new System.Drawing.Size(81, 20);
+            this.TxtQtd_Origem.TabIndex = 14;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(34, 472);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(54, 13);
+            this.label11.TabIndex = 26;
+            this.label11.Text = "Qtd Roms";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 527);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.TxtQtd_Origem);
             this.Controls.Add(this.BtnLimpar);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.progressBar1);
@@ -373,7 +399,8 @@
             this.Controls.Add(this.BtnRenomear);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "RENOMEAR ROMS";
+            this.TransparencyKey = System.Drawing.Color.Silver;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.GbManual.ResumeLayout(false);
             this.GbManual.PerformLayout();
@@ -421,6 +448,8 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.FolderBrowserDialog fbd;
         private System.Windows.Forms.Button BtnLimpar;
+        private System.Windows.Forms.TextBox TxtQtd_Origem;
+        private System.Windows.Forms.Label label11;
     }
 }
 
