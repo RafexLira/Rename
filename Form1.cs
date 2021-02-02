@@ -115,6 +115,7 @@ namespace Rename
                 }
                 MessageBox.Show("Arquivos renomeados com sucesso!");
                     progressBar1.Value = 0;
+                    txtOutput.Text = "";
                     listBox1.Items.Clear();
                     Arquivos.Clear();
                     Qtd_Saida = 0;
@@ -158,6 +159,7 @@ namespace Rename
                 Qtd_Saida = 0;
                 Qtd_Origem = 0;
                 TxtQtd_Origem.Text = "";
+                txtOutput.Text = "";
             }
             catch(Exception ex)
             {
@@ -289,6 +291,8 @@ namespace Rename
             Arquivos.Clear();
             txtOutput.Enabled = false;
             BtnSaida.Enabled = false;
+            txtOutput.Text = "";
+            
             Qtd_Saida = 0;
             Qtd_Origem = 0;
         }
