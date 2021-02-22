@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Security;
-using System.Windows.Forms;
 using System.IO;
-using System.Linq;
+using System.Windows.Forms;
 
 
 namespace Rename
@@ -13,15 +9,11 @@ namespace Rename
     public partial class Form1 : Form
 
     {        
-        //OBSERVACOES
-        //ADICIONAR CONTADOR PARA EXPOR A QUANTIDADE DE ROMS NO DIRETÓRIO DE ORIGEM 
-
         List<string> Arquivos = new List<string>();
-        public FileInfo NovosArquivos;
-        public string DirSaida;
-        public int Qtd_Origem = 0;
-        public int Qtd_Saida = 0;
-       
+        FileInfo NovosArquivos;
+        string DirSaida;
+        int Qtd_Origem = 0;
+        int Qtd_Saida = 0;       
         public Form1()
         {
             InitializeComponent();
@@ -40,11 +32,7 @@ namespace Rename
             TxtRemover3.Text = "(?)";
             TxtAcrescentar3.Text = "";
         }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-        private void RbManual_CheckedChanged(object sender, EventArgs e)
+        void RbManual_CheckedChanged(object sender, EventArgs e)
         {
             if (GbManual.Enabled == false)
             {
@@ -55,7 +43,7 @@ namespace Rename
                 GbManual.Enabled = false;
             }
         }
-        private void btnBuscar_Click(object sender, EventArgs e)
+        void btnBuscar_Click(object sender, EventArgs e)
         {
             GetArquivos();
             if (listBox1.Text != null)
@@ -65,7 +53,7 @@ namespace Rename
                 TxtQtd_Origem.Text = Qtd_Origem.ToString();
             }
         }
-        private void BtnRenomear_Click(object sender, EventArgs e)
+        void BtnRenomear_Click(object sender, EventArgs e)
         {
             if (DirSaida != null)
             {
@@ -83,7 +71,7 @@ namespace Rename
                 MessageBox.Show("A pasta de saída do arquivo não pode ser nulo");
             }
         }       
-        private void BtnSaida_Click(object sender, EventArgs e)
+        void BtnSaida_Click(object sender, EventArgs e)
         {
             fbd = new FolderBrowserDialog();
             fbd.ShowNewFolderButton = true;
@@ -98,8 +86,7 @@ namespace Rename
         void ProcessarManual()
         {                       
                 try
-                {   //CONFIGURAR PEGADA DOS ARQUIVOS E DIRETÓRIO
-                    //verificar se os textbox podem ser nulos   
+                {   
                 foreach (var x in Arquivos)
                 {
                     Qtd_Saida++;
@@ -113,15 +100,8 @@ namespace Rename
                 {
                     MessageBox.Show("Alguns arquivos não foram transferidos devido a duplicidade de nomes!");
                 }
-                MessageBox.Show("Arquivos renomeados com sucesso!");
-                    progressBar1.Value = 0;
-                    txtOutput.Text = "";
-                    listBox1.Items.Clear();
-                    Arquivos.Clear();
-                    Qtd_Saida = 0;
-                    Qtd_Origem = 0;
-                    TxtQtd_Origem.Text = "";
-            }
+                        ExecutarFinalizacao();
+                }
                 catch (Exception ex)
                 {
                    // MessageBox.Show(ex.Message);
@@ -152,14 +132,7 @@ namespace Rename
                 {
                     MessageBox.Show("Alguns arquivos não foram transferidos devido a duplicidade de nomes!");
                 }
-                MessageBox.Show("Arquivos renomeados com sucesso!");
-                progressBar1.Value = 0;
-                listBox1.Items.Clear();
-                Arquivos.Clear();
-                Qtd_Saida = 0;
-                Qtd_Origem = 0;
-                TxtQtd_Origem.Text = "";
-                txtOutput.Text = "";
+                ExecutarFinalizacao();
             }
             catch(Exception ex)
             {
@@ -207,8 +180,8 @@ namespace Rename
            .Replace("(Rev 2)", "").Replace("(Rev 3)", "").Replace("(Rev 4)", "").Replace("(Rev 5)", "")
            .Replace("(Beta)", "").Replace("(Beta)", "").Replace("(REV01)", "").Replace("(REV02)", "").Replace("(REV03)", "")
            .Replace("(REV04)", "").Replace("(REV05)", "")
-           .Replace("(REV)", "").Replace("(REV00)", "").Replace("(REV 00)", "").Replace("(REV01)", "")
-           .Replace("(REV02)", "").Replace("(REV03)", "").Replace("(REV04)", "").Replace("(REV05)", "")
+           .Replace("(REV)", "").Replace("(REV00)", "").Replace("(REV 00)", "").Replace("(REV001)", "")
+           .Replace("(REV002)", "").Replace("(REV003)", "").Replace("(REV04)", "").Replace("(REV05)", "")
            .Replace("(REV)", "").Replace("(REV00)", "").Replace("(REV 00)", "").Replace("(Rev 1)", "").Replace("V1.2", "")
            .Replace("V1.3", "").Replace("V1.4", "").Replace("V2.1", "").Replace("V2.2", "").Replace("V2.3", "")
            .Replace("V2.4", "").Replace("V3.1", "").Replace("V3.2", "").Replace("V3.3", "").Replace("V3.4", "").Replace("V0.1", "")
@@ -246,7 +219,7 @@ namespace Rename
                                     .Replace(" M3 ", "").Replace(" M4 ", "").Replace(" M5 ", "").Replace(" M6 ", "").Replace("[b1]", "")
                                     .Replace("[BIOS]","").Replace("[a]","").Replace("[a1]", "").Replace("[a2]", "").Replace("[a3]", "")
                                     .Replace("[a4]", "").Replace("[c1]", "").Replace("[c2]", "").Replace("[c3]", "").Replace("[c4]", "")
-                                
+                                     .Replace("(Australia)","").Replace("(Unknown)","").Replace("[c]", "")
                                     //CARACTERES ESPECIAIS
                                     .Replace("_", " ").Replace("-", " ").Replace(",", " ").Replace("_", " ").Replace("-", " ")
                                     .Replace("(", "").Replace(")", "").Replace(")", "").Replace("  ", " ").Replace("   ", " ")
@@ -285,7 +258,7 @@ namespace Rename
                 }
             }
         }
-        private void BtnLimpar_Click(object sender, EventArgs e)
+        void BtnLimpar_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
             Arquivos.Clear();
@@ -296,7 +269,18 @@ namespace Rename
             Qtd_Saida = 0;
             Qtd_Origem = 0;
         }
-     
+
+        void ExecutarFinalizacao()
+        {
+            MessageBox.Show("Arquivos renomeados com sucesso!");
+            progressBar1.Value = 0;
+            txtOutput.Text = "";
+            listBox1.Items.Clear();
+            Arquivos.Clear();
+            Qtd_Saida = 0;
+            Qtd_Origem = 0;
+            TxtQtd_Origem.Text = "";
+        }
     }
 }
 
